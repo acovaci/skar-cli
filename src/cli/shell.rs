@@ -10,21 +10,25 @@ pub enum SkarShellCommand {
 
 #[derive(Args, Debug)]
 pub struct SkarShellCompleteArgs {
-    pub beginning: String,
+    #[arg(trailing_var_arg = true, allow_hyphen_values = true, hide = true)]
+    pub _args: Vec<String>,
 }
 
 #[derive(Args, Debug)]
 pub struct SkarShellExplainArgs {
-    pub command: String,
+    #[arg(trailing_var_arg = true, allow_hyphen_values = true, hide = true)]
+    pub _args: Vec<String>,
 }
 
 #[derive(Args, Debug)]
 pub struct SkarShellGenerateArgs {
-    pub description: String,
+    #[arg(trailing_var_arg = true, allow_hyphen_values = true, hide = true)]
+    pub _args: Vec<String>,
 }
 
 pub async fn complete(args: SkarShellCompleteArgs) -> Res<()> {
-    let (beginning, completion) = skar::command::shell::complete(args.beginning.as_str()).await?;
+    let (beginning, completion) =
+        skar::command::shell::complete(args._args.join(" ").as_str()).await?;
     println!(
         "{}{}",
         beginning,
@@ -34,13 +38,13 @@ pub async fn complete(args: SkarShellCompleteArgs) -> Res<()> {
 }
 
 pub async fn explain(args: SkarShellExplainArgs) -> Res<()> {
-    let explanation = skar::command::shell::explain(args.command.as_str()).await?;
+    let explanation = skar::command::shell::explain(args._args.join(" ").as_str()).await?;
     println!("{}", explanation);
     Ok(())
 }
 
 pub async fn generate(args: SkarShellGenerateArgs) -> Res<()> {
-    let generation = skar::command::shell::generate(args.description.as_str()).await?;
+    let generation = skar::command::shell::generate(args._args.join(" ").as_str()).await?;
     println!("{}", generation);
     Ok(())
 }
