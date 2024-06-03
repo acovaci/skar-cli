@@ -58,6 +58,7 @@ I would especially welcome contributions in the following areas:
    know.
 2. **Testing**: I have not written any tests for this project yet. If you are interested in writing
    tests, please let me know.
+3. **Packaging**: I would also want to provide apt, brew, winget, etc. packages.
 
 ## License
 
