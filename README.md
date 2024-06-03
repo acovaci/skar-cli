@@ -44,7 +44,7 @@ Skar can currently do three things for you:
    generate a command for you. For example, if you type `?! list all files in a directory`, Skar
    will suggest `ls -la` as a possible command.
 
-![actual command outputs from the tool](https://github.com/acovaci/skar-cli/assets/6562353/00f2bd29-b8b4-43e0-9791-84c891a9f6aa)
+![carbon-6](https://github.com/acovaci/skar-cli/assets/6562353/49d90ced-0360-4b4c-8543-d5115016216c)
 
 ## Contributing
 
