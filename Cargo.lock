@@ -760,6 +760,12 @@ dependencies = [
 ]
 
 [[package]]
+name = "multiline-str"
+version = "0.1.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "2c122ad41147754c50db0d7420f743efcc974635fa767486cc9fb9382b6cbd1a"
+
+[[package]]
 name = "native-tls"
 version = "0.2.12"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1217,9 +1223,11 @@ dependencies = [
  "log",
  "log4rs",
  "minijinja",
+ "multiline-str",
  "openai_dive",
  "reqwest",
  "serde",
+ "text-block-macros",
  "thiserror",
  "tokio",
 ]
@@ -1334,6 +1342,12 @@ dependencies = [
  "rustix",
  "windows-sys 0.52.0",
 ]
+
+[[package]]
+name = "text-block-macros"
+version = "0.1.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "7f8b59b4da1c1717deaf1de80f0179a9d8b4ac91c986d5fd9f4a8ff177b84049"
 
 [[package]]
 name = "thiserror"

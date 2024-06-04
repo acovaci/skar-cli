@@ -27,6 +27,6 @@ impl ChatContext {
             content: response.clone(),
         });
         log::debug!("Chat history: {:?}", self.history);
-        return Ok(response);
+        Ok(response)
     }
 }

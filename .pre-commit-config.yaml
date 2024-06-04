@@ -1,0 +1,46 @@
+---
+minimum_pre_commit_version: 3.7.0
+default_install_hook_types: [pre-commit, commit-msg]
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.6.0
+    hooks:
+      - id: check-yaml
+        types: [yaml]
+      - id: check-toml
+        types: [toml]
+      - id: check-executables-have-shebangs
+        types_or: [shell, text]
+      - id: check-shebang-scripts-are-executable
+        types_or: [shell, text]
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+  - repo: https://github.com/Lucas-C/pre-commit-hooks
+    rev: v1.5.5
+    hooks:
+      - id: remove-crlf
+  - repo: https://github.com/doublify/pre-commit-rust
+    rev: v1.0
+    hooks:
+      - id: fmt
+        types: [rust]
+      - id: cargo-check
+        types: [rust]
+      - id: clippy
+        types: [rust]
+  - repo: https://github.com/adrienverge/yamllint.git
+    rev: v1.35.1
+    hooks:
+      - id: yamllint
+        args: [--format, parsable, --strict]
+  - repo: https://github.com/executablebooks/mdformat
+    rev: 0.7.17
+    hooks:
+      - id: mdformat
+        args: [--wrap=100, --number]
+        types: [markdown]
+  - repo: https://github.com/compilerla/conventional-pre-commit
+    rev: v3.2.0
+    hooks:
+      - id: conventional-pre-commit
+    stages: [commit-msg]

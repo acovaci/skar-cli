@@ -105,13 +105,7 @@ pub fn get_config_text() -> Res<BufWriter<Vec<u8>>> {
 
     for (alias, command) in ALIASES.iter() {
         buf.write_all(
-            format!(
-                "alias '{}'='{} {}'",
-                alias,
-                crate_dir.display().to_string(),
-                command
-            )
-            .as_bytes(),
+            format!("alias '{}'='{} {}'", alias, crate_dir.display(), command).as_bytes(),
         )?;
         buf.write_all(&[b'\n'])?;
     }

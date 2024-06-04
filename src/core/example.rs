@@ -4,7 +4,7 @@ pub struct Example {
 }
 
 impl Example {
-    pub fn to_string(&self) -> String {
+    pub fn into_string(&self) -> String {
         format!("Input: {} -> Output: {}", self.input, self.output)
     }
 }

@@ -67,4 +67,3 @@ I would especially welcome contributions in the following areas:
 
 This project is licensed under the GNU Affero General Public License v3.0. You can find the full
 license text in the [LICENSE](LICENSE) file.
-
