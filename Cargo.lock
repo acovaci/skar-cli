@@ -94,6 +94,17 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "69f7f8c3906b62b754cd5326047894316021dcfe5a194c8ea52bdd94934a3457"
 
 [[package]]
+name = "async-trait"
+version = "0.1.80"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "c6fa2087f2753a7da8cc1c0dbfcf89579dd57458e36769de5ac750b4671737ca"
+dependencies = [
+ "proc-macro2",
+ "quote",
+ "syn 2.0.66",
+]
+
+[[package]]
 name = "atomic-waker"
 version = "1.1.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -720,6 +731,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "minijinja"
+version = "2.0.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "7165d0e94806d52ad5295e4b54a95176d831814840bc067298ca647e1c956338"
+dependencies = [
+ "serde",
+]
+
+[[package]]
 name = "miniz_oxide"
 version = "0.7.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1189,12 +1209,14 @@ dependencies = [
 name = "skar"
 version = "0.1.0"
 dependencies = [
+ "async-trait",
  "clap",
  "colored",
  "dotenv",
  "home",
  "log",
  "log4rs",
+ "minijinja",
  "openai_dive",
  "reqwest",
  "serde",

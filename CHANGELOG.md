@@ -9,6 +9,10 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Added
 
+- `skar init`: manages the changes to zshrc. Implemented for ZSH only for now.
+- `skar chat`: opens a chat interface to interact with the AI agent.
+- `?-`: Alias for `skar chat`.
+
 ### Changed
 
 - Capture command line arguments without quotes.

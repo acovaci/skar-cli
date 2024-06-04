@@ -26,6 +26,14 @@ pub struct SkarShellGenerateArgs {
     pub _args: Vec<String>,
 }
 
+pub async fn run(args: SkarShellCommand) -> Res<()> {
+    match args {
+        SkarShellCommand::Complete(args) => complete(args).await,
+        SkarShellCommand::Explain(args) => explain(args).await,
+        SkarShellCommand::Generate(args) => generate(args).await,
+    }
+}
+
 pub async fn complete(args: SkarShellCompleteArgs) -> Res<()> {
     let (beginning, completion) =
         skar::command::shell::complete(args._args.join(" ").as_str()).await?;

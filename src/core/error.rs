@@ -14,6 +14,18 @@ pub enum SkarError {
     #[error("No generation response")]
     NoGenerationResponse,
 
-    #[error("OpenAI API key not set")]
+    #[error("Environment variable not set: {0}")]
     OpenAIKeyNotSet(#[from] std::env::VarError),
+
+    #[error("IO error: {0}")]
+    IOError(#[from] std::io::Error),
+
+    #[error("Invalid shell configuration: {0} {1}")]
+    InvalidShellConfig(std::path::PathBuf, String),
+
+    #[error("OpenAI API error: {0}")]
+    OpenAIError(String),
+
+    #[error("Internal Skar error: {0}")]
+    _Internal(String),
 }

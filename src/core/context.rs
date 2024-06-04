@@ -1,13 +1,14 @@
 pub enum ModelContext {
-    ShellCompletionContext,
-    ShellExplainContext,
-    ShellGenerateContext,
+    ShellCompletion,
+    ShellExplanation,
+    ShellGeneration,
+    Chat,
 }
 
 impl ModelContext {
-    pub fn to_string(&self) -> String {
+    pub fn to_string(&self) -> Option<String> {
         match self {
-            ModelContext::ShellCompletionContext => {
+            ModelContext::ShellCompletion => {
                 let instructions = vec![
                     "You are part of a command-line interface that provides auto-completion for shell",
                     "commands. You will get part of a command and you need to provide the full command,",
@@ -43,9 +44,9 @@ impl ModelContext {
                 .map(|example| example.to_string())
                 .collect::<Vec<String>>()
                 .join("\n");
-                format!("{}\n\nExamples:{}", instructions, examples)
+                Some(format!("{}\n\nExamples:{}", instructions, examples))
             }
-            ModelContext::ShellExplainContext => {
+            ModelContext::ShellExplanation => {
                 let instructions = vec![
                 "You are part of a command-line interface that provides explanations for shell",
                 "commands. You will get a full command and you need to provide an explanation for",
@@ -159,12 +160,12 @@ impl ModelContext {
                 .map(|example| example.to_string())
                 .collect::<Vec<String>>()
                 .join("\n");
-                format!(
+                Some(format!(
                     "{}\n\nQuestion and Answer Examples:{}",
                     instructions, examples
-                )
+                ))
             }
-            ModelContext::ShellGenerateContext => {
+            ModelContext::ShellGeneration => {
                 let instructions = vec![
                     "You are part of a command-line interface that provides command generation for shell",
                     "commands. You will get a description of a command and you need to provide the full",
@@ -202,8 +203,9 @@ impl ModelContext {
                         output: "ls -l /home/user/.config".to_string(),
                     },
                 ].into_iter().map(|example| example.to_string()).collect::<Vec<String>>().join("\n");
-                format!("{}\n\nExamples:{}", instructions, examples)
+                Some(format!("{}\n\nExamples:{}", instructions, examples))
             }
+            ModelContext::Chat => None,
         }
     }
 }

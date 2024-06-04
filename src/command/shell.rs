@@ -4,7 +4,7 @@ use crate::{
 };
 
 pub async fn complete(beginning: &str) -> Res<(String, String)> {
-    let context = crate::core::context::ModelContext::ShellCompletionContext;
+    let context = crate::core::context::ModelContext::ShellCompletion;
     let api = crate::api::openai::text::OpenAITextAPI::new(context)?;
 
     let beginning = beginning.trim();
@@ -14,22 +14,22 @@ pub async fn complete(beginning: &str) -> Res<(String, String)> {
 }
 
 pub async fn explain(beginning: &str) -> Res<String> {
-    let context = crate::core::context::ModelContext::ShellExplainContext;
+    let context = crate::core::context::ModelContext::ShellExplanation;
     let api = crate::api::openai::text::OpenAITextAPI::new(context)?;
 
     let beginning = beginning.trim();
-    let explanation = api.generate(beginning).await?;
+    let explanation = api.reply(beginning).await?;
 
     Ok(explanation)
 }
 
 pub async fn generate(description: &str) -> Res<String> {
-    let context = crate::core::context::ModelContext::ShellGenerateContext;
+    let context = crate::core::context::ModelContext::ShellGeneration;
     let api = crate::api::openai::text::OpenAITextAPI::new(context)?;
 
     let description = description.trim();
     let generation = api
-        .generate(description)
+        .reply(description)
         .await?
         .split('\n')
         .next()
