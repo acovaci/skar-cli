@@ -13,7 +13,7 @@ Once you have Rust installed, you can install Skar by running the following comm
 
 ```bash
 $ cargo build --release
-$ scripts/install.sh
+$ cargo run --release -- init
 ```
 
 Finally, you will also need to set your OpenAI API key as an environment variable. There are
@@ -43,6 +43,9 @@ Skar can currently do three things for you:
 3. **Generate commands**: Use `?!` with a short description of what you want to do, and Skar will
    generate a command for you. For example, if you type `?! list all files in a directory`, Skar
    will suggest `ls -la` as a possible command.
+
+4. **Chat with the AI**: Use `?-` to open a chat interface with the AI agent. You can ask it
+   questions, and it will try to answer them to the best of its ability.
 
 ![carbon-6](https://github.com/acovaci/skar-cli/assets/6562353/49d90ced-0360-4b4c-8543-d5115016216c)
 
