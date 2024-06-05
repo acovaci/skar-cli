@@ -40,8 +40,8 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y gcc-aarch64-linux-gnu
           sudo apt-get install -y libc6-dev
-          wget http://security.ubuntu.com/ubuntu/pool/main/o/openssl/libssl-dev_3.0.2-0ubuntu1.15_amd64.deb -O /tmp/libssl-dev_3.0.2-0ubuntu1.15_amd64.deb
-          sudo dpkg -i /tmp/libssl-dev_3.0.2-0ubuntu1.15_amd64.deb
+          wget http://ports.ubuntu.com/pool/main/o/openssl/libssl-dev_3.0.2-0ubuntu1.15_arm64.deb -O /tmp/libssl-dev_3.0.2-0ubuntu1.15_amd64.deb
+          sudo dpkg -i /tmp/libssl-dev_3.0.2-0ubuntu1.15_arm64.deb
       - uses: taiki-e/upload-rust-binary-action@v1
         with:
           bin: "skar"
