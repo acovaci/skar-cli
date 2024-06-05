@@ -1,6 +1,6 @@
 [package]
 name = "skar"
-version = "0.1.0"
+version = "0.2.0"
 edition = "2021"
 
 [dependencies]
@@ -18,7 +18,12 @@ reqwest = { version = "0.12.4", features = ["json"] }
 serde = { version = "1.0.203", features = ["derive"] }
 text-block-macros = "0.1.1"
 thiserror = "1.0.61"
-tokio = { version = "1.38.0", features = ["rt", "rt-multi-thread", "macros", "io-std"] }
+tokio = { version = "1.38.0", features = [
+    "rt",
+    "rt-multi-thread",
+    "macros",
+    "io-std",
+] }
 
 [dev-dependencies]
 dotenv = "0.15.0"

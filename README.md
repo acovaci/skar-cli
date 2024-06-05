@@ -6,14 +6,15 @@ generate commands for you.
 
 ## Installation
 
-You first need to install Rust on your system. You can do this by following the instructions on the
-[Rust website](https://www.rust-lang.org/tools/install).
+Download the latest release from the [releases page](https://github.com/acovaci/skar/releases) and
+extract the archive to where you want to install Skar. You can also clone the repository and build
+the project yourself.
 
-Once you have Rust installed, you can install Skar by running the following commands:
+On Linux and MacOS, once you have extracted the archive, run the following command to initialize
+Skar:
 
 ```bash
-$ cargo build --release
-$ cargo run --release -- init
+$ skar init
 ```
 
 Finally, you will also need to set your OpenAI API key as an environment variable. There are
