@@ -35,6 +35,13 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
+      - if: ${{ matrix.os == 'aarch64-unknown-linux-gnu' }}
+        run: |
+          apt update
+          apt install -y pkg-config
+          apt install -y gcc-aarch64-linux-gnu
+          apt install -y libc6-dev
+          apt install -y libssl-dev
       - uses: taiki-e/upload-rust-binary-action@v1
         with:
           bin: "skar"
