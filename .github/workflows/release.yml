@@ -13,7 +13,7 @@ jobs:
       - uses: taiki-e/create-gh-release-action@v1
         with:
           changelog: CHANGELOG.md
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.RELEASE_TOKEN }}
 
   upload-assets:
     needs: create-release
@@ -38,7 +38,7 @@ jobs:
       - uses: taiki-e/upload-rust-binary-action@v1
         with:
           bin: "skar"
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.RELEASE_TOKEN }}
           target: ${{ matrix.target }}
           tar: all
           zip: all
