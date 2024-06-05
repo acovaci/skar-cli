@@ -2,7 +2,7 @@ mod cli;
 
 #[tokio::main]
 async fn main() {
-    dotenv::dotenv().ok();
+    init_env();
 
     skar::core::log::init();
 
@@ -12,5 +12,11 @@ async fn main() {
             log::error!("Error: {:?}", e);
             std::process::exit(1);
         }
+    }
+}
+
+fn init_env() {
+    if cfg!(debug_assertions) {
+        dotenv::dotenv().ok();
     }
 }
